@@ -3,7 +3,12 @@
 {% block body %}
 
 <div class="container my-3">
-  <h2>Add a Todo</h2>
+  <h3><marquee>This is a todo list. A list of things that one wants to get done or that need to get done. No, I haven't bought the gift yet, but it's on my to-do list.</marquee></h3>
+  <h2>Add a Todo</h2><div class="spinner-border text-dark" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div><div class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
   <form action="/" method="POST">
     <div class="mb-3">
       <label for="title" class="form-label">Todo Title</label>
@@ -48,9 +53,10 @@
                 <th scope="col">Actions</th>
               </tr>
             </thead>
+            
             <tbody>
-
       {% for todo in allTodo %}
+      
       <tr>
         <!-- <th scope="row">1</th> --> <!-- if we pass this line of code then it will work but if we are delete any ne entries they deletes the sno location or delete wala sno hat ke uske aage wala aa jaege. is liye hum loop.index jinja2 ka  usekarenge -->
         <th scope="row">{{loop.index}}</th>
@@ -62,9 +68,10 @@
             <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-success btn-sm mx-1">Delete</button>
           </td>
       </tr>
-    </tbody>
-  </table>
+  
       {% endfor %}
+    </tbody>  
+    </table>
       {% endif %}
 
 </div>
